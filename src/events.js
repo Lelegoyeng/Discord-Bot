@@ -45,7 +45,7 @@ player.on('trackStart', (queue, track) => {
 
 player.on('trackAdd', (queue, track) => {
    
-    queue.metadata.send(`Track ${track.title} added in the queue ✅`);
+    queue.metadata.send(`#Track ${track.title}... \n   \n Added in the queue ✅`);
 });
 
 player.on('botDisconnect', (queue) => {
