@@ -11,8 +11,12 @@ player.on('connectionError', (queue, error) => {
 player.on('trackStart', (queue, track) => {
     if (!client.config.opt.loopMessage && queue.repeatMode !== 0) return;
     const embed = new EmbedBuilder()
-    .setAuthor({name: `Started playing ${track.title} in ${queue.connection.channel.name} 🎧`, iconURL: track.requestedBy.avatarURL()})
+    .setAuthor({ name: `🍟 `+track.title,  iconURL: track.requestedBy.avatarURL({ size: 1024, dynamic: true })})
+    .setThumbnail(track.thumbnail)
+    .setDescription(`Requested by ${track.requestedBy}`)
+    .setFooter({ text: 'Music Bot - Made with heart by Lelegoyeng❤️'})
     .setColor('#13f857')
+    .setTimestamp()
 
     const back = new ButtonBuilder()
     .setLabel('Back')
@@ -43,10 +47,10 @@ player.on('trackStart', (queue, track) => {
     queue.metadata.send({ embeds: [embed], components: [row1] })
 });
 
-player.on('trackAdd', (queue, track) => {
+// player.on('trackAdd', (queue, track) => {
    
-    queue.metadata.send(`#Track ${track.title}... \n   \n Added in the queue ✅`);
-});
+//     queue.metadata.send(`#Track ${track.title}... \n   \n Added in the queue ✅`);
+// });
 
 player.on('botDisconnect', (queue) => {
     queue.metadata.send('I was manually disconnected from the voice channel, clearing queue... ❌');

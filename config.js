@@ -1,6 +1,8 @@
+require('dotenv').config(); 
+
 module.exports = {
     app: {
-        token: 'MTA0NjA1MjUyNzI2ODk2NjQ4MQ.GrnVSf.wIjnykxhiZQsU_ScJJiCZGkNSLEeyUWtoaphgQ',
+        token: process.env.token,
         playing: 'by Lelegoyeng ❤️',
         global: true,
         guild: 'XXX'
@@ -13,7 +15,7 @@ module.exports = {
             commands: []
         },
         maxVol: 100,
-        leaveOnEnd: true,
+        leaveOnEnd: false,
         loopMessage: false,
         spotifyBridge: true,
         defaultvolume: 75,
